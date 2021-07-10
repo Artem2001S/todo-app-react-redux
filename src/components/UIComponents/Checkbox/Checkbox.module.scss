@@ -1,0 +1,42 @@
+@import 'globalStyles/variables.scss';
+
+.CheckboxInput {
+  display: none;
+
+  &:checked + .Checkbox::after {
+    display: block;
+  }
+}
+
+.CheckboxContainer {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.Checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba($color: $darkslategray, $alpha: 0.4);
+  border-radius: 50%;
+
+  transition: border-color 0.2s linear;
+
+  &::after {
+    content: '✓';
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    color: $green;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    border-color: rgba($color: $darkslategray, $alpha: 0.6);
+  }
+}

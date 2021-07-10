@@ -1,0 +1,16 @@
+@import 'globalStyles/variables.scss';
+
+.TodoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  color: rgba($color: $red, $alpha: 0.3);
+  font-size: 55px;
+  text-align: center;
+}
+
+.TodoListContainer {
+  width: 100%;
+}
