@@ -3,7 +3,12 @@ import classNames from 'classnames';
 import Checkbox from 'components/UIComponents/Checkbox/Checkbox';
 import classes from './TodoItem.module.scss';
 
-export default function TodoItem({ text, isCompleted, isEditMode = false }) {
+export default function TodoItem({
+  text,
+  isCompleted,
+  isEditMode = false,
+  onTodoDelete,
+}) {
   const checkboxContainerClasses = classNames(
     {
       [classes.Hided]: isEditMode,
@@ -37,7 +42,11 @@ export default function TodoItem({ text, isCompleted, isEditMode = false }) {
         <span className={todoTextClasses}>{text}</span>
       )}
 
-      {!isEditMode && <button className={classes.DeleteBtn}>&times;</button>}
+      {!isEditMode && (
+        <button className={classes.DeleteBtn} onClick={onTodoDelete}>
+          &times;
+        </button>
+      )}
     </div>
   );
 }

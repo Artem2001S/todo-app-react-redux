@@ -10,7 +10,12 @@ const initialState = [
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
-  reducers: {},
+  reducers: {
+    todoDeleted: (state, action) => {
+      return state.filter((todo) => todo.id !== action.payload);
+    },
+  },
 });
 
+export const { todoDeleted } = todosSlice.actions;
 export default todosSlice.reducer;
