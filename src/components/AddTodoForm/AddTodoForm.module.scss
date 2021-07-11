@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.Wrapper {
+  position: relative;
+}
+
 .Title {
   color: rgba($color: $red, $alpha: 0.3);
   font-size: 55px;
@@ -11,7 +15,34 @@
 }
 
 .Input {
+  padding-left: 45px;
   border: none;
   box-shadow: none;
   border: 1px solid rgba($color: $darkslategray, $alpha: 0.3);
+}
+
+.ToggleAllBtn {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+
+  transform: translateY(-50%) rotate(90deg);
+
+  font-size: 30px;
+  color: $black;
+  opacity: 0.3;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &.Hided {
+    visibility: hidden;
+  }
+
+  &.AllCompleted {
+    opacity: 0.6;
+  }
 }

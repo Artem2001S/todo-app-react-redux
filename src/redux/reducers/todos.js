@@ -38,9 +38,22 @@ const todosSlice = createSlice({
         (todo) => todo.id === payload && (todo.isCompleted = !todo.isCompleted)
       );
     },
+    allTodosToggled: (state) => {
+      const isAllCompleted = state.every((todo) => todo.isCompleted);
+      const isAllNotCompleted = state.every((todo) => todo.isCompleted);
+      state.forEach((todo) => {
+        todo.isCompleted =
+          isAllCompleted || isAllNotCompleted ? !todo.isCompleted : true;
+      });
+    },
   },
 });
 
-export const { todoDeleted, todoTextChanged, todoToggled, todoAdded } =
-  todosSlice.actions;
+export const {
+  todoDeleted,
+  todoTextChanged,
+  todoToggled,
+  todoAdded,
+  allTodosToggled,
+} = todosSlice.actions;
 export default todosSlice.reducer;
