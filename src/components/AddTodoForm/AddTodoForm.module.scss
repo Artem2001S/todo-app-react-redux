@@ -1,0 +1,17 @@
+@import 'globalStyles/variables.scss';
+
+.TodoForm {
+  width: 100%;
+}
+
+.Title {
+  color: rgba($color: $red, $alpha: 0.3);
+  font-size: 55px;
+  text-align: center;
+}
+
+.Input {
+  border: none;
+  box-shadow: none;
+  border: 1px solid rgba($color: $darkslategray, $alpha: 0.3);
+}

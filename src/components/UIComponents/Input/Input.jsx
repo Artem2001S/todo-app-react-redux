@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import classes from './Input.module.scss';
 
-const Input = ({ value, autoFocus = false, onChange, onBlur, onKeyPress }) => {
+const Input = ({
+  className,
+  value,
+  autoFocus = false,
+  onChange,
+  onBlur,
+  onKeyPress,
+}) => {
+  const computedClasses = classNames(classes.Input, className);
   return (
     <input
-      className={classes.Input}
+      className={computedClasses}
       type="text"
       value={value}
       onBlur={onBlur}
@@ -17,6 +26,7 @@ const Input = ({ value, autoFocus = false, onChange, onBlur, onKeyPress }) => {
 };
 
 Input.propTypes = {
+  className: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
