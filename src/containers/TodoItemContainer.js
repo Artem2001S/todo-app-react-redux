@@ -42,6 +42,12 @@ const TodoItemContainer = ({ todo }) => {
     setInputValue(e.target.value);
   };
 
+  const handleInputKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.target.blur();
+    }
+  };
+
   return (
     <TodoItem
       text={todo.text}
@@ -53,6 +59,7 @@ const TodoItemContainer = ({ todo }) => {
       onTodoDoubleClick={handleTodoDoubleClick}
       onInputChange={handleInputChange}
       onTodoToggle={handleCheckboxClick}
+      onInputKeyPress={handleInputKeyPress}
     />
   );
 };

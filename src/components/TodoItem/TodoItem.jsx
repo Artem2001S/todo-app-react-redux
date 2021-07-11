@@ -14,6 +14,7 @@ const TodoItem = ({
   onTodoDoubleClick,
   onTodoInputBlur,
   onInputChange,
+  onInputKeyPress,
   onTodoToggle,
 }) => {
   const checkboxContainerClasses = classNames(
@@ -48,6 +49,7 @@ const TodoItem = ({
           value={inputValue}
           onChange={onInputChange}
           onBlur={onTodoInputBlur}
+          onKeyPress={onInputKeyPress}
           autoFocus={true}
         />
       ) : (
@@ -75,6 +77,7 @@ TodoItem.propTypes = {
   onTodoInputBlur: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onTodoToggle: PropTypes.func.isRequired,
+  onInputKeyPress: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
