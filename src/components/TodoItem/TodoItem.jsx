@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Checkbox from 'components/UIComponents/Checkbox/Checkbox';
 import Input from 'components/UIComponents/Input/Input';
 import classes from './TodoItem.module.scss';
 
-export default function TodoItem({
+const TodoItem = ({
   text,
   isCompleted,
   isEditMode = false,
@@ -14,7 +15,7 @@ export default function TodoItem({
   onTodoInputBlur,
   onInputChange,
   onTodoToggle,
-}) {
+}) => {
   const checkboxContainerClasses = classNames(
     {
       [classes.Hided]: isEditMode,
@@ -62,4 +63,18 @@ export default function TodoItem({
       )}
     </div>
   );
-}
+};
+
+TodoItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  isCompleted: PropTypes.bool.isRequired,
+  isEditMode: PropTypes.bool,
+  inputValue: PropTypes.string.isRequired,
+  onTodoDelete: PropTypes.func.isRequired,
+  onTodoDoubleClick: PropTypes.func.isRequired,
+  onTodoInputBlur: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onTodoToggle: PropTypes.func.isRequired,
+};
+
+export default TodoItem;

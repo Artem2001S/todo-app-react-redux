@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { TodoItemContainer } from './TodoItemContainer';
+import TodoItemContainer from './TodoItemContainer';
 import TodoList from 'components/TodoList/TodoList';
 
-export default function TodoListContainer() {
+const TodoListContainer = () => {
   const todos = useSelector((state) => state.todos);
 
   const renderedTodos = todos.map((todo, index) => (
@@ -11,4 +11,6 @@ export default function TodoListContainer() {
   ));
 
   return <TodoList>{renderedTodos}</TodoList>;
-}
+};
+
+export default TodoListContainer;

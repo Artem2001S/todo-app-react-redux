@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TodoItem from 'components/TodoItem/TodoItem';
+import PropTypes from 'prop-types';
 import {
   todoDeleted,
   todoTextChanged,
   todoToggled,
 } from 'redux/reducers/todos';
+import TodoItem from 'components/TodoItem/TodoItem';
 
-export const TodoItemContainer = ({ todo, deleteTodo }) => {
+const TodoItemContainer = ({ todo }) => {
   const dispatch = useDispatch();
 
   const handleDeleteBtnClick = () => {
@@ -55,3 +56,13 @@ export const TodoItemContainer = ({ todo, deleteTodo }) => {
     />
   );
 };
+
+TodoItemContainer.propTypes = {
+  todo: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    isCompleted: PropTypes.bool.isRequired,
+  }),
+};
+
+export default TodoItemContainer;
