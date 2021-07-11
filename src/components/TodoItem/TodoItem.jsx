@@ -7,7 +7,11 @@ export default function TodoItem({
   text,
   isCompleted,
   isEditMode = false,
+  inputValue,
   onTodoDelete,
+  onTodoDoubleClick,
+  onTodoInputBlur,
+  onInputChange,
 }) {
   const checkboxContainerClasses = classNames(
     {
@@ -31,13 +35,20 @@ export default function TodoItem({
   );
 
   return (
-    <div className={todoItemClasses}>
+    <div className={todoItemClasses} onDoubleClick={onTodoDoubleClick}>
       <div className={checkboxContainerClasses}>
         <Checkbox isChecked={isCompleted} />
       </div>
 
       {isEditMode ? (
-        <input className={classes.TodoItemInput} type="text" value={text} />
+        <input
+          className={classes.TodoItemInput}
+          type="text"
+          value={inputValue}
+          onBlur={onTodoInputBlur}
+          onChange={onInputChange}
+          autoFocus
+        />
       ) : (
         <span className={todoTextClasses}>{text}</span>
       )}

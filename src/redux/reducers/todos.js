@@ -11,11 +11,15 @@ const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    todoDeleted: (state, action) => {
-      return state.filter((todo) => todo.id !== action.payload);
+    todoDeleted: (state, { payload }) => {
+      return state.filter((todo) => todo.id !== payload);
+    },
+    todoTextChanged: (state, { payload }) => {
+      const index = state.findIndex((todo) => todo.id === payload.id);
+      state[index].text = payload.text;
     },
   },
 });
 
-export const { todoDeleted } = todosSlice.actions;
+export const { todoDeleted, todoTextChanged } = todosSlice.actions;
 export default todosSlice.reducer;
