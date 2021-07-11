@@ -35,7 +35,7 @@ export default function TodoItem({
   );
 
   return (
-    <div className={todoItemClasses} onDoubleClick={onTodoDoubleClick}>
+    <div className={todoItemClasses}>
       <div className={checkboxContainerClasses}>
         <Checkbox isChecked={isCompleted} />
       </div>
@@ -50,7 +50,9 @@ export default function TodoItem({
           autoFocus
         />
       ) : (
-        <span className={todoTextClasses}>{text}</span>
+        <div className={todoTextClasses} onDoubleClick={onTodoDoubleClick}>
+          {text}
+        </div>
       )}
 
       {!isEditMode && (
