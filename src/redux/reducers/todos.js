@@ -38,6 +38,7 @@ const todosSlice = createSlice({
         (todo) => todo.id === payload && (todo.isCompleted = !todo.isCompleted)
       );
     },
+
     allTodosToggled: (state) => {
       const isAllCompleted = state.every((todo) => todo.isCompleted);
       const isAllNotCompleted = state.every((todo) => todo.isCompleted);
@@ -45,6 +46,10 @@ const todosSlice = createSlice({
         todo.isCompleted =
           isAllCompleted || isAllNotCompleted ? !todo.isCompleted : true;
       });
+    },
+
+    completedTodoDeleted: (state) => {
+      return state.filter((todo) => !todo.isCompleted);
     },
   },
 });
@@ -55,5 +60,6 @@ export const {
   todoToggled,
   todoAdded,
   allTodosToggled,
+  completedTodoDeleted,
 } = todosSlice.actions;
 export default todosSlice.reducer;

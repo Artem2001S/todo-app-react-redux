@@ -3,6 +3,10 @@
 .TodoList {
   display: flex;
   flex-direction: column;
+
+  border: 1px solid rgba($color: $darkslategray, $alpha: 0.3);
+  border-top: none;
+  border-bottom: none;
 }
 
 .TodoListContainer {

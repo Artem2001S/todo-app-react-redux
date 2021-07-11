@@ -29,7 +29,11 @@ const AddTodoForm = ({
           value={value}
           onChange={onValueChange}
         />
-        <button className={toggleBtnClasses} onClick={onToggleAll}>
+        <button
+          type="button"
+          className={toggleBtnClasses}
+          onClick={onToggleAll}
+        >
           ❯
         </button>
       </div>

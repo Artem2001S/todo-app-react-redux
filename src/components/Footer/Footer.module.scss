@@ -1,0 +1,32 @@
+@import 'globalStyles/variables.scss';
+
+.Footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 25px 15px;
+  border: 1px solid rgba($color: $darkslategray, $alpha: 0.3);
+  border-top: none;
+}
+
+.ClearCompletedBtn {
+  font-size: 18px;
+  color: $darkslategray;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &.Hided {
+    visibility: hidden;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.StatusBar {
+  font-size: 18px;
+  color: $darkslategray;
+}
