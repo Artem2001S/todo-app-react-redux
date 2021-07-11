@@ -66,7 +66,7 @@ const TodoItemContainer = ({ todo }) => {
 
 TodoItemContainer.propTypes = {
   todo: PropTypes.exact({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     isCompleted: PropTypes.bool.isRequired,
   }),
