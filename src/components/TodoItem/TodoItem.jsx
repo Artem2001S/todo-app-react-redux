@@ -53,7 +53,11 @@ const TodoItem = ({
           autoFocus={true}
         />
       ) : (
-        <div className={todoTextClasses} onDoubleClick={onTodoDoubleClick}>
+        <div
+          className={todoTextClasses}
+          onDoubleClick={onTodoDoubleClick}
+          onTouchEnd={onTodoDoubleClick}
+        >
           {text}
         </div>
       )}
