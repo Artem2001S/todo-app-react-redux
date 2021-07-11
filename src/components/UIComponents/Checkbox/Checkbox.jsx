@@ -9,6 +9,7 @@ const Checkbox = ({ isChecked, onCheckedChanged }) => {
         className={classes.CheckboxInput}
         type="checkbox"
         checked={isChecked}
+        readOnly
       />
       <span className={classes.Checkbox} onClick={onCheckedChanged} />
     </div>
