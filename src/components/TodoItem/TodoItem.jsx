@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Checkbox from 'components/UIComponents/Checkbox/Checkbox';
+import Input from 'components/UIComponents/Input/Input';
 import classes from './TodoItem.module.scss';
 
 export default function TodoItem({
@@ -42,13 +43,11 @@ export default function TodoItem({
       </div>
 
       {isEditMode ? (
-        <input
-          className={classes.TodoItemInput}
-          type="text"
+        <Input
           value={inputValue}
-          onBlur={onTodoInputBlur}
           onChange={onInputChange}
-          autoFocus
+          onBlur={onTodoInputBlur}
+          autoFocus={true}
         />
       ) : (
         <div className={todoTextClasses} onDoubleClick={onTodoDoubleClick}>

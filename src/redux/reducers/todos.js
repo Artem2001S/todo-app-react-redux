@@ -21,7 +21,6 @@ const todosSlice = createSlice({
     },
 
     todoToggled: (state, { payload }) => {
-      console.log('toggle', payload);
       state.forEach(
         (todo) => todo.id === payload && (todo.isCompleted = !todo.isCompleted)
       );
