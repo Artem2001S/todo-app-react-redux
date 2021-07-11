@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TodoItem from 'components/TodoItem/TodoItem';
-import { todoDeleted, todoTextChanged } from 'redux/reducers/todos';
+import {
+  todoDeleted,
+  todoTextChanged,
+  todoToggled,
+} from 'redux/reducers/todos';
 
 export const TodoItemContainer = ({ todo, deleteTodo }) => {
   const dispatch = useDispatch();
@@ -16,6 +20,10 @@ export const TodoItemContainer = ({ todo, deleteTodo }) => {
   const handleTodoDoubleClick = () => {
     setIsEditMode(true);
     setInputValue(todo.text);
+  };
+
+  const handleCheckboxClick = () => {
+    dispatch(todoToggled(todo.id));
   };
 
   const handleTodoInputBlur = () => {
@@ -43,6 +51,7 @@ export const TodoItemContainer = ({ todo, deleteTodo }) => {
       onTodoInputBlur={handleTodoInputBlur}
       onTodoDoubleClick={handleTodoDoubleClick}
       onInputChange={handleInputChange}
+      onTodoToggle={handleCheckboxClick}
     />
   );
 };

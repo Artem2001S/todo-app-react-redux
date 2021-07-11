@@ -12,6 +12,7 @@ export default function TodoItem({
   onTodoDoubleClick,
   onTodoInputBlur,
   onInputChange,
+  onTodoToggle,
 }) {
   const checkboxContainerClasses = classNames(
     {
@@ -37,7 +38,7 @@ export default function TodoItem({
   return (
     <div className={todoItemClasses}>
       <div className={checkboxContainerClasses}>
-        <Checkbox isChecked={isCompleted} />
+        <Checkbox isChecked={isCompleted} onCheckedChanged={onTodoToggle} />
       </div>
 
       {isEditMode ? (

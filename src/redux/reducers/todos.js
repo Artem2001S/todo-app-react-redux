@@ -14,12 +14,20 @@ const todosSlice = createSlice({
     todoDeleted: (state, { payload }) => {
       return state.filter((todo) => todo.id !== payload);
     },
+
     todoTextChanged: (state, { payload }) => {
       const index = state.findIndex((todo) => todo.id === payload.id);
       state[index].text = payload.text;
     },
+
+    todoToggled: (state, { payload }) => {
+      console.log('toggle', payload);
+      state.forEach(
+        (todo) => todo.id === payload && (todo.isCompleted = !todo.isCompleted)
+      );
+    },
   },
 });
 
-export const { todoDeleted, todoTextChanged } = todosSlice.actions;
+export const { todoDeleted, todoTextChanged, todoToggled } = todosSlice.actions;
 export default todosSlice.reducer;
