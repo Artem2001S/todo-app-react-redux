@@ -4,12 +4,14 @@ import classNames from 'classnames';
 import classes from './FilterButton.module.scss';
 
 const FilterButton = ({ filter, onClick }) => {
+  const btnClasses = classNames(
+    { [classes.Active]: filter.isActive },
+    classes.FilterButton
+  )
+
   return (
     <button
-      className={classNames(
-        { [classes.Active]: filter.isActive },
-        classes.FilterButton
-      )}
+      className={btnClasses}
       data-id={filter.id}
       type="button"
       onClick={onClick}

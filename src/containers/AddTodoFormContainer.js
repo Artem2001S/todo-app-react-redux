@@ -4,11 +4,10 @@ import { allTodosToggled, todoAdded } from 'redux/reducers/todosReducer';
 import AddTodoForm from 'components/AddTodoForm/AddTodoForm';
 
 const AddTodoFormContainer = () => {
-  const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState('');
 
   const todos = useSelector((state) => state.todos);
-
   const isZeroTodos = useMemo(() => !todos.length, [todos]);
 
   const isAllCompleted = useMemo(
@@ -24,9 +23,10 @@ const AddTodoFormContainer = () => {
   const handleFormSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      setInputValue('');
       const text = inputValue.trim();
+
       if (text) {
+        setInputValue('');
         dispatch(todoAdded(text));
       }
     },
@@ -41,10 +41,10 @@ const AddTodoFormContainer = () => {
   return (
     <AddTodoForm
       value={inputValue}
-      onValueChange={handleInputChange}
-      onSubmit={handleFormSubmit}
       isZeroTodos={isZeroTodos}
       isAllCompleted={isAllCompleted}
+      onValueChange={handleInputChange}
+      onSubmit={handleFormSubmit}
       onToggleAll={handleToggleAllBtnClick}
     />
   );

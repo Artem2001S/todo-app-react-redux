@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './Filters.module.scss';
 import FilterButton from './FilterButton/FilterButton';
+import classes from './Filters.module.scss';
 
 const Filters = ({ filters, onFilterChanged }) => {
   return (
@@ -25,6 +25,7 @@ Filters.propTypes = {
       isActive: PropTypes.bool,
     })
   ),
+  onFilterChanged: PropTypes.func,
 };
 
 export default React.memo(Filters);
