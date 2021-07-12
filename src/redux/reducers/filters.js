@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export const filterValues = {
+  All: 'All',
+  Active: 'Active',
+  Completed: 'Completed',
+};
+
 const filtersSlice = createSlice({
   initialState: [
-    { id: 1, value: 'All', isActive: true },
-    { id: 2, value: 'Active', isActive: false },
-    { id: 3, value: 'Completed', isActive: false },
+    { id: 1, value: filterValues.All, isActive: true },
+    { id: 2, value: filterValues.Active, isActive: false },
+    { id: 3, value: filterValues.Completed, isActive: false },
   ],
   name: 'filters',
   reducers: {
