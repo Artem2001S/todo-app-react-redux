@@ -1,0 +1,21 @@
+@import 'globalStyles/variables.scss';
+
+.FilterButton {
+  background-color: $white;
+  border: 1px solid rgba($color: $red, $alpha: 0);
+  font-size: 17px;
+  color: $darkslategray;
+  cursor: pointer;
+  padding: 4px 10px;
+
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: rgba($color: $red, $alpha: 0.2);
+  }
+
+  &.Active {
+    border-color: rgba($color: $red, $alpha: 0.5);
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,8 @@
+@import 'globalStyles/variables.scss';
+
+.Filters {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 300px;
+}
