@@ -1,14 +1,12 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { getDataFromLocalStorage } from 'redux/localStorage';
 
-const initialState = [
-  { id: '1', text: 'todo 1', isCompleted: true },
-  { id: '2', text: 'todo 2', isCompleted: true },
-  { id: '3', text: 'todo 3', isCompleted: true },
-  { id: '4', text: 'todo 4', isCompleted: false },
-];
+const name = 'todos';
+
+const initialState = getDataFromLocalStorage(name) || [];
 
 const todosSlice = createSlice({
-  name: 'todos',
+  name,
   initialState,
   reducers: {
     todoAdded: {

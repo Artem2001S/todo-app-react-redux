@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getDataFromLocalStorage } from 'redux/localStorage';
 
 export const filterValues = {
   All: 'All',
@@ -6,13 +7,18 @@ export const filterValues = {
   Completed: 'Completed',
 };
 
+const name = 'filters';
+const initialState = [
+  { id: 1, value: filterValues.All, isActive: true },
+  { id: 2, value: filterValues.Active, isActive: false },
+  { id: 3, value: filterValues.Completed, isActive: false },
+];
+
+const preLoadedState = getDataFromLocalStorage(name) || initialState;
+
 const filtersSlice = createSlice({
-  initialState: [
-    { id: 1, value: filterValues.All, isActive: true },
-    { id: 2, value: filterValues.Active, isActive: false },
-    { id: 3, value: filterValues.Completed, isActive: false },
-  ],
-  name: 'filters',
+  name,
+  initialState: preLoadedState,
   reducers: {
     filterChanged: (state, { payload }) => {
       const activeFilterIndex = state.findIndex((filter) => filter.isActive);
