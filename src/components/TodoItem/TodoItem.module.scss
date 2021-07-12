@@ -42,6 +42,11 @@
   &.Completed {
     text-decoration: line-through;
   }
+
+  @include media-mobile() {
+    font-size: 21px;
+    padding: 15px 35px 15px 15px;
+  }
 }
 
 .DeleteBtn {

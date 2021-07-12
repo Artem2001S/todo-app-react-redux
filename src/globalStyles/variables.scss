@@ -8,9 +8,16 @@ $green: #108f16;
 $gray: #999999;
 
 $tablet-width: 768px;
+$mobile-width: 480px;
 
 @mixin media-tablet {
   @media screen and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media screen and (max-width: $mobile-width) {
     @content;
   }
 }

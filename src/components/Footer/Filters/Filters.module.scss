@@ -5,4 +5,9 @@
   justify-content: space-around;
   width: 100%;
   max-width: 300px;
+
+  @include media-mobile() {
+    max-width: initial;
+    flex-direction: column;
+  }
 }

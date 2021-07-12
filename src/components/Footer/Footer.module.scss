@@ -9,6 +9,16 @@
   padding: 25px 15px;
   border: 1px solid rgba($color: $darkslategray, $alpha: 0.3);
   border-top: none;
+
+  @include media-mobile() {
+    flex-direction: column;
+    align-items: start;
+    padding: 25px 15px;
+
+    & * + * {
+      margin-top: 10px;
+    }
+  }
 }
 
 .ClearCompletedBtn {
@@ -27,4 +37,3 @@
     text-decoration: underline;
   }
 }
-
