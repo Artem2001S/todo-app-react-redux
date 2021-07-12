@@ -21,4 +21,4 @@ Checkbox.propTypes = {
   onCheckedChanged: PropTypes.func,
 };
 
-export default Checkbox;
+export default React.memo(Checkbox);

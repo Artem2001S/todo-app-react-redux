@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { completedTodoDeleted } from 'redux/reducers/todos';
 import { makeGetNotCompletedTodosCount } from 'redux/selectors/todosSelectors';
@@ -8,7 +8,10 @@ import Footer from 'components/Footer/Footer';
 const FooterContainer = () => {
   const dispatch = useDispatch();
 
-  const handleClearCompletedBtnClick = () => dispatch(completedTodoDeleted());
+  const handleClearCompletedBtnClick = useCallback(
+    () => dispatch(completedTodoDeleted()),
+    [dispatch]
+  );
 
   const haveCompletedTodos = useSelector((state) =>
     state.todos.some((todo) => todo.isCompleted === true)
@@ -23,10 +26,13 @@ const FooterContainer = () => {
     getNotCompletedTodosCount(state)
   );
 
-  const handleFilterChanged = (e) => {
-    const id = Number(e.target.dataset.id);
-    dispatch(filterChanged({ filterId: id }));
-  };
+  const handleFilterChanged = useCallback(
+    (e) => {
+      const id = Number(e.target.dataset.id);
+      dispatch(filterChanged({ filterId: id }));
+    },
+    [dispatch]
+  );
 
   return (
     <>
@@ -43,4 +49,4 @@ const FooterContainer = () => {
   );
 };
 
-export default FooterContainer;
+export default React.memo(FooterContainer);

@@ -50,4 +50,4 @@ AddTodoForm.propTypes = {
   onToggleAll: PropTypes.func.isRequired,
 };
 
-export default AddTodoForm;
+export default React.memo(AddTodoForm);

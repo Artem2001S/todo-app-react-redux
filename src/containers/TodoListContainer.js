@@ -6,6 +6,7 @@ import TodoList from 'components/TodoList/TodoList';
 
 const TodoListContainer = () => {
   const visibleTodos = useSelector(getVisibleTodoList);
+
   const renderedTodos = visibleTodos.map((todo, index) => (
     <TodoItemContainer key={index} todo={todo} />
   ));
@@ -13,4 +14,4 @@ const TodoListContainer = () => {
   return <TodoList>{renderedTodos}</TodoList>;
 };
 
-export default TodoListContainer;
+export default React.memo(TodoListContainer);

@@ -14,4 +14,4 @@ StatusBar.propTypes = {
   notCompletedTodosCount: PropTypes.number,
 };
 
-export default StatusBar;
+export default React.memo(StatusBar);

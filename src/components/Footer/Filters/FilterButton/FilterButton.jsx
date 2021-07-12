@@ -28,4 +28,4 @@ FilterButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default FilterButton;
+export default React.memo(FilterButton);

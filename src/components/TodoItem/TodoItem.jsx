@@ -84,4 +84,4 @@ TodoItem.propTypes = {
   onInputKeyPress: PropTypes.func.isRequired,
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);

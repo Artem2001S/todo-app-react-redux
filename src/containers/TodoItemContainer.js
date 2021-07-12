@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -11,23 +11,23 @@ import TodoItem from 'components/TodoItem/TodoItem';
 const TodoItemContainer = ({ todo }) => {
   const dispatch = useDispatch();
 
-  const handleDeleteBtnClick = () => {
+  const handleDeleteBtnClick = useCallback(() => {
     dispatch(todoDeleted(todo.id));
-  };
+  }, [dispatch, todo.id]);
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [inputValue, setInputValue] = useState(todo.text);
 
-  const handleTodoDoubleClick = () => {
+  const handleTodoDoubleClick = useCallback(() => {
     setIsEditMode(true);
     setInputValue(todo.text);
-  };
+  }, [todo]);
 
-  const handleCheckboxClick = () => {
+  const handleCheckboxClick = useCallback(() => {
     dispatch(todoToggled(todo.id));
-  };
+  }, [dispatch, todo]);
 
-  const handleTodoInputBlur = () => {
+  const handleTodoInputBlur = useCallback(() => {
     setIsEditMode(false);
 
     const newText = inputValue.trim();
@@ -36,17 +36,17 @@ const TodoItemContainer = ({ todo }) => {
     } else {
       dispatch(todoDeleted(todo.id));
     }
-  };
+  }, [dispatch, inputValue, todo]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     setInputValue(e.target.value);
-  };
+  }, []);
 
-  const handleInputKeyPress = (e) => {
+  const handleInputKeyPress = useCallback((e) => {
     if (e.key === 'Enter') {
       e.target.blur();
     }
-  };
+  }, []);
 
   return (
     <TodoItem
@@ -72,4 +72,4 @@ TodoItemContainer.propTypes = {
   }),
 };
 
-export default TodoItemContainer;
+export default React.memo(TodoItemContainer);

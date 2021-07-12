@@ -34,4 +34,4 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
 };
 
-export default Input;
+export default React.memo(Input);

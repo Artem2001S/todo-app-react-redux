@@ -39,4 +39,4 @@ Footer.propTypes = {
   onFilterChanged: PropTypes.func.isRequired,
 };
 
-export default Footer;
+export default React.memo(Footer);
