@@ -1,4 +1,4 @@
-import todosReducer from 'redux/reducers/todos';
-import filtersReducer from 'redux/reducers/filters';
+import todosReducer from 'redux/reducers/todosReducer';
+import filtersReducer from 'redux/reducers/filtersReducer';
 
 export const reducers = { todos: todosReducer, filters: filtersReducer };

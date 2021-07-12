@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { filterValues } from 'redux/reducers/filters';
+import { filterValues } from 'redux/reducers/filtersReducer';
 
 const getTodos = (state) => state.todos;
 const getFilters = (state) => state.filters;

@@ -5,7 +5,7 @@ import {
   todoDeleted,
   todoTextChanged,
   todoToggled,
-} from 'redux/reducers/todos';
+} from 'redux/reducers/todosReducer';
 import TodoItem from 'components/TodoItem/TodoItem';
 
 const TodoItemContainer = ({ todo }) => {

@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { allTodosToggled, todoAdded } from 'redux/reducers/todos';
+import { allTodosToggled, todoAdded } from 'redux/reducers/todosReducer';
 import AddTodoForm from 'components/AddTodoForm/AddTodoForm';
 
 const AddTodoFormContainer = () => {

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { completedTodoDeleted } from 'redux/reducers/todos';
+import { completedTodoDeleted } from 'redux/reducers/todosReducer';
 import { makeGetNotCompletedTodosCount } from 'redux/selectors/todosSelectors';
-import { filterChanged } from 'redux/reducers/filters';
+import { filterChanged } from 'redux/reducers/filtersReducer';
 import Footer from 'components/Footer/Footer';
 
 const FooterContainer = () => {
