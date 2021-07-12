@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './Footer.module.scss';
 import classNames from 'classnames';
+import StatusBar from './StatusBar/StatusBar';
+import classes from './Footer.module.scss';
 
 const Footer = ({
-  itemsCount,
+  notCompletedTodosCount,
   showClearCompletedBtn,
   onClearCompletedBtnClick,
 }) => {
@@ -15,7 +16,7 @@ const Footer = ({
 
   return (
     <div className={classes.Footer}>
-      <div className={classes.StatusBar}>{itemsCount} items left</div>
+      <StatusBar notCompletedTodosCount={notCompletedTodosCount} />
       <button
         className={clearCompletedBtnClasses}
         onClick={onClearCompletedBtnClick}
@@ -27,7 +28,6 @@ const Footer = ({
 };
 
 Footer.propTypes = {
-  itemsCount: PropTypes.number,
   showClearCompletedBtn: PropTypes.bool,
   onClearCompletedBtnClick: PropTypes.func.isRequired,
 };
