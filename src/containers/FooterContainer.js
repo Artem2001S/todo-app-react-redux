@@ -33,9 +33,8 @@ const FooterContainer = () => {
     getNotCompletedTodosCount(state)
   );
 
-  const handleFilterChanged = useCallback(
-    (e) => {
-      const id = Number(e.target.dataset.id);
+  const handleFilterClick = useCallback(
+    (id) => {
       dispatch(filterChanged({ filterId: id }));
     },
     [dispatch]
@@ -49,7 +48,7 @@ const FooterContainer = () => {
           haveCompletedTodos={haveCompletedTodos}
           filters={filters}
           onClearCompletedBtnClick={handleClearCompletedBtnClick}
-          onFilterChanged={handleFilterChanged}
+          onFilterChanged={handleFilterClick}
         />
       )}
     </>
